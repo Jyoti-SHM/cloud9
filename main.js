@@ -1255,31 +1255,31 @@ if (expScroll) {
         all OTHER internal links (footer, content cards, CTAs, "similar stays",
         blog cards, etc.) open in a new tab.)
        ============================================================ */
-    function makeInternalLinksOpenNewTab() {
-        var aTags = document.querySelectorAll('a[href]');
-        aTags.forEach(function (a) {
-            var href = a.getAttribute('href') || '';
+    // function makeInternalLinksOpenNewTab() {
+    //     var aTags = document.querySelectorAll('a[href]');
+    //     aTags.forEach(function (a) {
+    //         var href = a.getAttribute('href') || '';
 
-            // skip anchors on same page (#...)
-            if (href.charAt(0) === '#') return;
-            // skip empty / javascript
-            if (!href || href.toLowerCase().indexOf('javascript') === 0) return;
-            // skip external (http/https/tel/mailto/wa.me) — keep their existing behavior
-            if (/^(https?:|tel:|mailto:|wa\.me)/i.test(href)) return;
+    //         // skip anchors on same page (#...)
+    //         if (href.charAt(0) === '#') return;
+    //         // skip empty / javascript
+    //         if (!href || href.toLowerCase().indexOf('javascript') === 0) return;
+    //         // skip external (http/https/tel/mailto/wa.me) — keep their existing behavior
+    //         if (/^(https?:|tel:|mailto:|wa\.me)/i.test(href)) return;
 
-            // It's a relative/absolute internal .html link.
-            // Don't touch the primary desktop header nav links (they reload same tab),
-            // but DO make footer links + mobile nav links + content links open new tab.
-            var inDesktopHeader = a.closest('.main-nav') || a.closest('.header-actions');
-            if (inDesktopHeader) return;
+    //         // It's a relative/absolute internal .html link.
+    //         // Don't touch the primary desktop header nav links (they reload same tab),
+    //         // but DO make footer links + mobile nav links + content links open new tab.
+    //         var inDesktopHeader = a.closest('.main-nav') || a.closest('.header-actions');
+    //         if (inDesktopHeader) return;
 
-            // Avoid duplicate target attr
-            if (a.getAttribute('target')) return;
+    //         // Avoid duplicate target attr
+    //         if (a.getAttribute('target')) return;
 
-            a.setAttribute('target', '_blank');
-            a.setAttribute('rel', 'noopener');
-        });
-    }
+    //         a.setAttribute('target', '_blank');
+    //         a.setAttribute('rel', 'noopener');
+    //     });
+    // }
 
     /* ============================================================
        3. WORKING ENQUIRY / EVENT FORMS
@@ -1943,17 +1943,17 @@ window.CLOUD9_REVIEWS = {
   });
 
   /* ---------- centred CTA buttons ---------- */
-  var actionsEl = section.querySelector('#gsActions');
-  ['google', 'tripadvisor'].forEach(function (key) {
-    var p = CFG[key];
-    if (!p) return;
-    actionsEl.insertAdjacentHTML('beforeend', '' +
-      '<a class="gs-action" href="' + esc(p.url) + '" target="_blank" rel="noopener noreferrer">' +
-        '<span class="gs-action-logo">' + LOGOS[key] + '</span>' +
-        '<span>Read our ' + esc(p.label) + ' reviews</span>' +
-        '<span class="gs-arrow" aria-hidden="true">&rarr;</span>' +
-      '</a>');
-  });
+//   var actionsEl = section.querySelector('#gsActions');
+//   ['google', 'tripadvisor'].forEach(function (key) {
+//     var p = CFG[key];
+//     if (!p) return;
+//     actionsEl.insertAdjacentHTML('beforeend', '' +
+//       '<a class="gs-action" href="' + esc(p.url) + '" target="_blank" rel="noopener noreferrer">' +
+//         '<span class="gs-action-logo">' + LOGOS[key] + '</span>' +
+//         '<span>Read our ' + esc(p.label) + ' reviews</span>' +
+//         '<span class="gs-arrow" aria-hidden="true">&rarr;</span>' +
+//       '</a>');
+//   });
 
   /* ---------- carousel engine ---------- */
   var autoTimer = null;
